@@ -31,6 +31,14 @@ function test200SourceFile () {
 		console.log( "F2c should resolve when requesting a source file that DOES exist" );
 		console.log( " - PASS" );
 
+		console.log( "F2c should return parsed JSON" );
+		if ( f2c.get( "array" )[ 0 ] == 1 ) {
+			console.log( " - PASS" );
+		}
+		else {
+			console.log( " - FAIL: response is not JSON" );
+		}
+
 	}).catch( () => {
 
 		console.log( "F2c should resolve when requesting a source file that DOES exist" );

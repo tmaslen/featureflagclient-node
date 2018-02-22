@@ -1,6 +1,6 @@
 {
   "name": "featureflagclient-node",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Service agnostic featureflag client",
   "main": "index.js",
   "scripts": {

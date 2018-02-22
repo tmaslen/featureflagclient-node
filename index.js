@@ -46,7 +46,7 @@ F2c.prototype = {
 					reject( err );
 					return;
 				}
-				this._features = JSON.parse( data );
+				this._features = JSON.parse( data.toString() );
 				resolve();
 			})
 
