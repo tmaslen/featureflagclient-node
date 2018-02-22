@@ -71,7 +71,7 @@ if ( featureflagclient.get( "newFeature" ) ) {
 Check the project out:
 
 ```
-git clone 
+git clone git@github.com:tmaslen/featureflagclient-node.git
 ```
 
 Install deps:
