@@ -1,6 +1,6 @@
 {
   "name": "featureflagclient-node",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Service agnostic featureflag client",
   "main": "index.js",
   "scripts": {
@@ -12,12 +12,16 @@
     "feature flags"
   ],
   "author": "Tom Maslen",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.0.1"
   },
   "dependencies": {
     "simple-get": "^2.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmaslen/featureflagclient-node"
   }
 }
