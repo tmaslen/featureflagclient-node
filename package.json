@@ -1,0 +1,25 @@
+{
+  "name": "featureflagclient-node",
+  "version": "0.0.0",
+  "description": "Service agnostic featureflag client",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test/unitTests.js"
+  },
+  "keywords": [
+    "featureflag",
+    "feature",
+    "flag",
+    "feature",
+    "flags"
+  ],
+  "author": "Tom Maslen",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.1"
+  },
+  "dependencies": {
+    "simple-get": "^2.7.0"
+  }
+}
