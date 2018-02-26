@@ -52,5 +52,26 @@ function test200SourceFile () {
 
 }
 
+function malformedJsonSourceFile () {
+
+	const f2c = new F2c( "https://featureflag.tech/malformedJsonExample.json" );
+	
+	f2c.getSourceFile()
+		.then( () => {
+
+			console.log( "F2c should reject when requesting a source file that IS MALFORMED" );
+			console.log( " - FAIL: promise should reject when malformed JSON is found." );
+
+		})
+		.catch( ( err ) => {
+
+			console.log( "F2c should reject when requesting a source file that IS MALFORMED" );
+			console.log( " - PASS" );
+
+		});
+
+}
+
 test404SourceFile();
 test200SourceFile();
+malformedJsonSourceFile();
