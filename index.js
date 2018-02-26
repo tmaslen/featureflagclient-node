@@ -41,12 +41,15 @@ F2c.prototype = {
 	"getSourceFile": function () {
 		return new Promise( ( resolve, reject ) => {
 
-			get.concat( this.sourceUrl, ( err, res, data ) => {
+			get.concat( {
+				"url": this.sourceUrl,
+				"json": true
+			}, ( err, res, data ) => {
 				if ( err || ( res.statusCode != 200 ) ) {
-					reject( err );
+					reject( err || new Error( "Source file not found" ) );
 					return;
 				}
-				this._features = JSON.parse( data.toString() );
+				this._features = data;
 				resolve();
 			})
 

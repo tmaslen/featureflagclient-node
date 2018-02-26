@@ -3,7 +3,7 @@ const F2c = require( "../index" );
 function test404SourceFile () {
 
 
-	const f2c = new F2c( "http://featureflag.tech/noFlagHere.json" );
+	const f2c = new F2c( "https://featureflag.tech/noFlagHere.json" );
 	
 	f2c.getSourceFile()
 		.then( () => {
@@ -12,7 +12,7 @@ function test404SourceFile () {
 			console.log( " - FAIL: promise should reject when no source file is found." );
 
 		})
-		.catch( () => {
+		.catch( ( err ) => {
 
 			console.log( "F2c should reject when requesting a source file that DOES NOT exist" );
 			console.log( " - PASS" );
@@ -24,7 +24,7 @@ function test404SourceFile () {
 function test200SourceFile () {
 
 
-	const f2c = new F2c( "http://featureflag.tech/node/exampleflag.json" );
+	const f2c = new F2c( "https://featureflag.tech/node/exampleflag.json" );
 
 	f2c.getSourceFile().then( () => {
 
@@ -39,7 +39,11 @@ function test200SourceFile () {
 			console.log( " - FAIL: response is not JSON" );
 		}
 
-	}).catch( () => {
+	}).catch( ( err ) => {
+
+		console.log( "****" );
+		console.log( err );
+		console.log( "****" );
 
 		console.log( "F2c should resolve when requesting a source file that DOES exist" );
 		console.log( " - FAIL: promise should not reject when a source file is found." );
