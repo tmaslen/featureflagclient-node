@@ -7,13 +7,13 @@ EmptyF2c.prototype = {
 	"else": function() {}
 }
 
-const F2c = function ( sourceUrl ) {
+const F2c = function ( sourceUrl, localFeatureFlags ) {
 	this._emptyF2c = new EmptyF2c();
 	this.sourceUrl = sourceUrl || null;
+	this._features = localFeatureFlags || {};
 };
 
 F2c.prototype = {
-	"_features": {},
 	"_whenedFeature": null,
 	"get": function ( feature ) {
 		if ( feature in this._features ) {
@@ -49,7 +49,9 @@ F2c.prototype = {
 					reject( err || new Error( "Source file not found" ) );
 					return;
 				}
-				this._features = data;
+				Object.keys( data ).forEach( ( key ) => {
+					this._features[ key ] = ( key in this._features ) ? this._features[ key ] : data[ key ];
+				});
 				resolve();
 			})
 

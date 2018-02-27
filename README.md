@@ -66,6 +66,29 @@ if ( featureflagclient.get( "newFeature" ) ) {
 
 ```
 
+A great way to use feature flags is to use the values from your flag source but override them in specific contexts. For example with a web application, you can have a feature disabled by default in your live production, but then override the value using a cookie or parameter in the request.
+
+For example:
+
+```
+const Featureflagclient = require( "featureflagclient-node" );
+
+const featureflagclient = 
+	new Featureflagclient(
+		"http://featureflag.tech/node/exampleflag.json",
+		{
+			"falseBoolean": req.param( "falseBooleanOverride" ) || null
+		}
+	);
+
+featureflagclient.getSourceFile().then( () => {
+
+	featureflagclient.get( "falseBoolean" ) // returns true
+
+});
+```
+
+
 ## Develop
 
 Check the project out:
